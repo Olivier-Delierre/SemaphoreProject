@@ -10,7 +10,7 @@ public:
      * @params position La position de la voiture.
      * @params destination La destination de la voiture.
      */
-    Voiture(Point position, Point destination);
+    Voiture(const Point& position, const Point& destination);
     /**
      * Destructeur par défaut de la voiture.
      */

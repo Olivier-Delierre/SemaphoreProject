@@ -7,7 +7,7 @@ TEST_DIR = .
 
 TEST = $(wildcard $(TEST_DIR)/*.cpp)
 
-DEPENDENCIES = $(SRC_DIR)/Point.cpp
+DEPENDENCIES = $(SRC_DIR)/Point.cpp $(SRC_DIR)/Voiture.cpp
 DEPENDENCIES_OBJ = $(DEPENDENCIES:.cpp=.o)
 DEPENDENCIES_OBJ := $(patsubst $(SRC_DIR)/%,$(DEPENDENCIES_OBJ_DIR)/%,$(DEPENDENCIES_OBJ))
 
@@ -22,11 +22,14 @@ tests: $(EXEC)
 $(EXEC): $(DEPENDENCIES_OBJ) $(OBJ)
 	$(CC) $^ -lgtest -lpthread -o $@
 
-$(DEPENDENCIES_OBJ_DIR)/Point.o: $(SRC_DIR)/Point.cpp
+$(DEPENDENCIES_OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp
-	$(CC) $(CFLAGS) $(INC) -c $< -lgtest -lpthread -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -lgtest -lgtest_main -lpthread -o $@
 
 clean:
-	@rm -rf $(TESTS_DIR)/*.o
+	@rm -rf $(OBJ_DIR)/*.o
+
+mrproper: clean
+	@rm -rf $(EXEC)

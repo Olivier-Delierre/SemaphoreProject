@@ -1,8 +1,8 @@
 #include "Voiture.hpp"
 
-Voiture::Voiture(Point position, Point destination) :
-    position{ &position },
-    destination{ &destination }
+Voiture::Voiture(const Point& position, const Point& destination) :
+    position{ new Point{ position } },
+    destination{ new Point{ destination } }
 {}
 
 Voiture::~Voiture() {

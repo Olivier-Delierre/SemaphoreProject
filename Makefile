@@ -13,3 +13,6 @@ test:
 clean:
 	make -C ./src clean
 	make -C ./test clean
+
+test-mrproper:
+	make -C ./test mrproper
