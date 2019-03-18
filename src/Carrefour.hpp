@@ -1,0 +1,6 @@
+class Carrefour {
+public:
+
+private:
+    
+};
