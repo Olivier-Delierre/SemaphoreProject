@@ -5,17 +5,24 @@
  */
 class Point {
 	public:
+        static Point Est;
+
         /**
          * Constructeur parametré.
-         * @params x La coordonnée en abscisse.
-         * @params y La coordonnée en ordonnée. 
+         * @param x La coordonnée en abscisse.
+         * @param y La coordonnée en ordonnée. 
          */
         Point(int x, int y);
         /**
          * Constructeur par recopie.
-         * @params p Le point à recopier.
+         * @param point Le point à recopier.
          */ 
-        Point(const Point& p);
+        Point(const Point& point);
+        /**
+         * Destructeur par défaut.
+         */
+        ~Point();
+
         /**
          * Getter de la coordonnée en abscisse.
          * @returns la coordonnée en abscisse.
@@ -26,6 +33,12 @@ class Point {
          * @returns la coordonnée en ordonnée.
          */
         int Y() const;
+
+        /**
+         * Surcharge de l'opérateur d'assignation.
+         * @param point Le point à assigner.
+         */
+        Point& operator=(const Point& p);
     private:
         /**
          * Les coordonnées en abscisse et en ordonnée.

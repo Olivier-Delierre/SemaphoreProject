@@ -12,7 +12,9 @@ while [ $error -ne 0 ]; do
     if [ $reponse == "O" ] || [ $reponse == "o" ]; then
         error=0
         make test-mrproper
-    elif [ $reponse != "N" ] || [ $reponse != "n" ]; then
+    elif [ $reponse != "N" ] && [ $reponse != "n" ]; then
         echo "Réponse incorrecte."
+    else
+        error=0;
     fi
 done

@@ -2,7 +2,9 @@
 
 Point::Point(int x, int y) : x{ x }, y{ y } {}
 
-Point::Point(const Point& p) : x{ p.x }, y{ p.y } {}
+Point::Point(const Point& point) : x{ point.x }, y{ point.y } {}
+
+Point::~Point() {}
 
 int Point::X() const {
     return this->x;
@@ -23,4 +25,11 @@ bool operator!=(const Point& p1, const Point& p2) {
 std::ostream& operator<<(std::ostream& os, const Point& p) {
     os << '(' << p.X() << ',' << p.Y() << ')';
     return os;
+}
+
+Point& Point::operator=(const Point& point) {
+    this->x = point.x;
+    this->y = point.y;
+
+    return *this;
 }

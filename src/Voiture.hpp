@@ -7,10 +7,15 @@ class Voiture {
 public:
     /**
      * Constructeur parametré.
-     * @params position La position de la voiture.
-     * @params destination La destination de la voiture.
+     * @param position La position de la voiture.
+     * @param destination La destination de la voiture.
      */
     Voiture(const Point& position, const Point& destination);
+    /**
+     * Constructeur par recopie.
+     * @param voiture La voiture à recopier.
+     */
+    Voiture(const Voiture& voiture);
     /**
      * Destructeur par défaut de la voiture.
      */
@@ -31,13 +36,19 @@ public:
      * Avance la voiture vers sa destination.
      */
     void Avancer();
+
+    /**
+     * Surcharge de l'opérateur d'assignement.
+     * @param voiture La voiture à assigner.
+     */
+    Voiture& operator=(const Voiture& voiture);
 private:
     /**
      * Un Point représentant la position de la voiture.
      */
-    Point* position;
+    Point position;
     /**
      * Un point représentant la destination de la voiture.
      */
-    Point* destination;
+    Point destination;
 };

@@ -2,9 +2,9 @@ BIN_DIR = ../bin
 EXEC = $(BIN_DIR)/SemaphoreProject
 
 SRC_DIR = .
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
+SRC = $(wildcard $(SRC_DIR)/*.cc)
 OBJ_DIR = ../obj
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.cc=.o)
 OBJ := $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(OBJ))
 
 all: $(EXEC)
@@ -12,7 +12,7 @@ all: $(EXEC)
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
 	$(CC) $(CFLAGS) -o $@ -c $< 
 
 clean:
