@@ -6,8 +6,6 @@
  */
 TEST(TestPoint, TestConstructeur) {
     Point pointNul{ 0, 0 };
-    Point pointXPositif{ 1, 0 };
-    Point pointYPositif{ -1, 0 };
 
     ASSERT_EQ(0, pointNul.X());
     ASSERT_EQ(0, pointNul.Y());

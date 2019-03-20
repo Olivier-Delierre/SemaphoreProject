@@ -1,4 +1,4 @@
-#include <Voiture.hpp>
+#include <Carrefour.hpp>
 
 #include <vector>
 #include <iostream>
@@ -24,10 +24,10 @@ TEST(TestVoiture, TestAvancer) {
     std::vector<std::vector<Voiture>> voitures(4, std::vector<Voiture>());
 
     std::vector<Point> positions;
-    positions.push_back(Point { 1, 0 }); // Nord
-    positions.push_back(Point { 2, 1 }); // Est 
-    positions.push_back(Point { 1, 2 }); // Sud
-    positions.push_back(Point { 0, 1 }); // Ouest
+    positions.push_back(Carrefour::Nord);
+    positions.push_back(Carrefour::Est); 
+    positions.push_back(Carrefour::Sud);
+    positions.push_back(Carrefour::Ouest);
 
     Point centre{ 1, 1 };
 
@@ -42,7 +42,7 @@ TEST(TestVoiture, TestAvancer) {
         auto voiture = vect->begin();
         for (; voiture != vect->end(); voiture++) {
             voiture->Avancer();
-            ASSERT_EQ(centre, voiture->Position());
+            ASSERT_EQ(Carrefour::Centre, voiture->Position());
 
             voiture->Avancer();
             ASSERT_EQ(voiture->Destination(), voiture->Position());

@@ -1,4 +1,5 @@
 #include "Voiture.hpp"
+#include "Carrefour.hpp"
 
 Voiture::Voiture(const Point& position, const Point& destination) :
     position{ position },
@@ -6,9 +7,13 @@ Voiture::Voiture(const Point& position, const Point& destination) :
 {}
 
 Voiture::Voiture(const Voiture& voiture) :
-    position{ voiture.position },
-    destination{ voiture.destination }
+    Voiture::Voiture(voiture.position, voiture.destination)
 {}
+
+Voiture::Voiture() {
+    this->position = Carrefour::PositionAleatoire();
+    this->destination = Carrefour::PositionAleatoire(this->position);
+}
 
 Voiture::~Voiture() 
 {}

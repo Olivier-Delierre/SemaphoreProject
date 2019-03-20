@@ -1,16 +1,23 @@
 #include "Point.hpp"
 
-Point::Point(int x, int y) : x{ x }, y{ y } {}
+Point::Point(unsigned short x, unsigned short y) : x{ x }, y{ y } {
+}
 
-Point::Point(const Point& point) : x{ point.x }, y{ point.y } {}
+Point::Point(const Point& point) :
+    Point::Point(point.x, point.y)
+{}
+
+Point::Point() :
+    Point::Point(0, 0)
+{}
 
 Point::~Point() {}
 
-int Point::X() const {
+unsigned short Point::X() const {
     return this->x;
 }
 
-int Point::Y() const {
+unsigned short Point::Y() const {
     return this->y;
 }
 

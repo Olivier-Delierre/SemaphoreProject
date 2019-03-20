@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 
 /**
@@ -5,19 +7,21 @@
  */
 class Point {
 	public:
-        static Point Est;
-
         /**
          * Constructeur parametré.
          * @param x La coordonnée en abscisse.
          * @param y La coordonnée en ordonnée. 
          */
-        Point(int x, int y);
+        Point(unsigned short x, unsigned short y);
         /**
          * Constructeur par recopie.
          * @param point Le point à recopier.
          */ 
         Point(const Point& point);
+        /**
+         * Constructeur par défaut.
+         */
+        Point();
         /**
          * Destructeur par défaut.
          */
@@ -27,12 +31,12 @@ class Point {
          * Getter de la coordonnée en abscisse.
          * @returns la coordonnée en abscisse.
          */
-        int X() const;
+        unsigned short X() const;
         /**
          * Getter de la coordonnée en ordonnée.
          * @returns la coordonnée en ordonnée.
          */
-        int Y() const;
+        unsigned short Y() const;
 
         /**
          * Surcharge de l'opérateur d'assignation.
@@ -43,7 +47,7 @@ class Point {
         /**
          * Les coordonnées en abscisse et en ordonnée.
          */
-        int x, y;
+        unsigned short x, y;
 };
 
 /**

@@ -7,7 +7,7 @@ TEST_DIR = .
 
 TEST = $(wildcard $(TEST_DIR)/*.cc)
 
-DEPENDENCIES = $(SRC_DIR)/Point.cc $(SRC_DIR)/Voiture.cc
+DEPENDENCIES = $(SRC_DIR)/Point.cc $(SRC_DIR)/Voiture.cc $(SRC_DIR)/Carrefour.cc
 DEPENDENCIES_OBJ = $(DEPENDENCIES:.cc=.o)
 DEPENDENCIES_OBJ := $(patsubst $(SRC_DIR)/%,$(DEPENDENCIES_OBJ_DIR)/%,$(DEPENDENCIES_OBJ))
 

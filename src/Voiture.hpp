@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Point.hpp"
 
 /**
@@ -16,6 +18,10 @@ public:
      * @param voiture La voiture à recopier.
      */
     Voiture(const Voiture& voiture);
+    /**
+     * Voiture par défaut qui génère une voiture à une position et une destination aléatoire.
+     */
+    Voiture();
     /**
      * Destructeur par défaut de la voiture.
      */
